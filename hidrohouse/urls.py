@@ -19,5 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^controle/', include('controle.urls')),
+    url(r'^estufa/', include('estufa.urls')),
     url(r'^admin/', admin.site.urls),
 ]

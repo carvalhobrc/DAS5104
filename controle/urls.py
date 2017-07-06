@@ -2,9 +2,17 @@ from django.conf.urls import *
 from rest_framework import routers
 from controle import views
 
-router = routers.DefaultRouter()
-router.register(r'controle', views.ControleViewSet)
+routerLuminosidade = routers.DefaultRouter()
+routerLuminosidade.register(r'luminosidade', views.LuminosidadeViewSet)
+
+routerIrrigacao = routers.DefaultRouter()
+routerIrrigacao.register(r'irrigacao', views.IrrigacaoViewSet)
+
+routerTemperatura = routers.DefaultRouter()
+routerTemperatura.register(r'temperatura', views.TemperaturaViewSet)
 
 urlpatterns = [
-    url(r'^api/', include(router.urls)),
+    url(r'^luminosidade_api/', include(routerLuminosidade.urls)),
+    url(r'^irrigacao_api/', include(routerIrrigacao.urls)),
+    url(r'^temperatura_api/', include(routerTemperatura.urls)),
 ]

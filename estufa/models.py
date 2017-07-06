@@ -25,4 +25,4 @@ class Slot(models.Model):
     sp_irrig_frequencia = models.FloatField = models.FloatField
 
     def __str__(self):
-        return self.estufa + " - Slot " + self.numero
+        return str(self.estufa) + " - Slot " + str(self.numero)

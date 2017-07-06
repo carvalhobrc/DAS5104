@@ -13,7 +13,7 @@ class Config_Padrao(models.Model):
     sp_irrig_frequencia = models.FloatField = models.FloatField
 
     def __str__(self):
-        return self.estufa + " - Slot " + self.numero
+        return self.planta
 
 class Log_Temperatura(models.Model):
     estufa = models.ForeignKey(Estufa, on_delete=models.CASCADE)
@@ -21,7 +21,7 @@ class Log_Temperatura(models.Model):
     temperatura = models.FloatField
 
     def __str__(self):
-        return self.estufa + ":" + self.datahora + ":" + self.temperatura
+        return self.estufa + ":" + self.datahora + ":" + str(self.temperatura)
 
 class Log_Irrigacao(models.Model):
     slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
@@ -30,7 +30,7 @@ class Log_Irrigacao(models.Model):
     irrig_freq = models.FloatField
 
     def __str__(self):
-        return self.estufa + ":" + self.datahora
+        return self.slot + ":" + self.datahora
 
 class Log_Luminosidade(models.Model):
     slot = models.ForeignKey(Slot, on_delete=models.CASCADE)
@@ -39,4 +39,4 @@ class Log_Luminosidade(models.Model):
     frequencia = models.FloatField
 
     def __str__(self):
-        return self.estufa + ":" + self.datahora
+        return self.slot + ":" + self.datahora
